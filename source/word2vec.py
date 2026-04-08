@@ -25,7 +25,7 @@ class CBOW(nn.Module):
         return h
 
 #@title Custom Dataset
-class TextDataset(Dataset):
+class BaseTextDataset(Dataset):
     def __init__(self, vocab, corpus, window_size):
         self.corpus = corpus
         self.window_size = window_size
@@ -77,7 +77,7 @@ class TextDataset(Dataset):
 
 
 # 教材用にカスタマイズ 
-class TextDataset(TextDataset):
+class TextDataset(BaseTextDataset):
     def __init__(self, vocab, corpus, window_size):
         super(TextDataset, self).__init__(vocab, corpus, window_size)
 
